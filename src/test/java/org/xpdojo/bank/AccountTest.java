@@ -18,7 +18,7 @@ public class AccountTest {
 
     @Test
     public void depositAnAmountToIncreaseTheBalance() {
-        
+
         Account account = new Account();
         account.deposit(100);
         assertThat(account.balance).isEqualTo(100);
@@ -30,5 +30,13 @@ public class AccountTest {
         account.deposit(100);
         account.deposit(300);
         assertThat(account.balance).isEqualTo(400);
+    }
+
+    @Test
+    public void withdrawMultipleAmounts() {
+        Account account = new Account();
+        account.deposit(300);
+        account.withdraw(100);
+        assertThat(account.balance).isEqualTo(200);
     }
 }
