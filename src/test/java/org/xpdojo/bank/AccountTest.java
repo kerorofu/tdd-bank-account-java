@@ -2,9 +2,10 @@ package org.xpdojo.bank;
 
 import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.Test;
+import org.assertj.core.api.AbstractIntegerAssert;
 
-import org.assertj.core.api.Assertions.assertThat;
-import static org.hamcrest.Matchers.is;
+import static org.assertj.core.api.Assertions.assertThat;
+//import org.hamcrest.Matchers.is;
 
 
 public class AccountTest {
@@ -12,17 +13,15 @@ public class AccountTest {
     @Test
     public void startingBalanceIsZero() {
         Account account = new Account();
-        assertThat(account.balance, is(0));
+        assertThat(account.balance).isEqualTo(0);
     }
 
     @Test
     public void depositAnAmountToIncreaseTheBalance() {
-
-        assertThat("your first test").isBlank();
-        // arrange
+        
         Account account = new Account();
         account.deposit(100);
-        assertThat(account.balance, is(100));
+        assertThat(account.balance).isEqualTo(100);
     }
 
     @Test
@@ -30,6 +29,6 @@ public class AccountTest {
         Account account = new Account();
         account.deposit(100);
         account.deposit(300);
-        assertThat(account.balance, is(400));
+        assertThat(account.balance).isEqualTo(400);
     }
 }
